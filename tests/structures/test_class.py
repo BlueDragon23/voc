@@ -2,6 +2,16 @@ from ..utils import TranspileTestCase
 
 
 class ClassTests(TranspileTestCase):
+    def test_minimal(self):
+        self.assertCodeExecution("""
+            class MyClass:
+                pass
+
+            obj = MyClass()
+
+            print('Done.')
+            """, run_in_function=False)
+
     def test_simple(self):
         self.assertCodeExecution("""
             class MyClass:
@@ -17,4 +27,4 @@ class ClassTests(TranspileTestCase):
             obj.stuff(5)
 
             print('Done.')
-            """)
+            """, run_in_function=False)

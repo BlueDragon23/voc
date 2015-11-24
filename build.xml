@@ -1,0 +1,23 @@
+<project name="python" default="all" basedir=".">
+  <description>
+    Build Python support libraries for voc
+  </description>
+
+  <property name="build" location="build"/>
+  <property name="dist" location="dist"/>
+
+  <target name="java">
+    <ant antfile="build-java.xml" target="dist"/>
+  </target>
+
+  <target name="android">
+    <ant antfile="build-android.xml" target="dist"/>
+  </target>
+
+  <target name="all" depends="java, android" />
+
+  <target name="clean" description="Clean up">
+    <delete dir="${build}"/>
+    <delete dir="${dist}"/>
+  </target>
+</project>

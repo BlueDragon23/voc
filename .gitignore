@@ -5,7 +5,7 @@
 dist
 build
 local
-_build
+local.properties
 distribute-*
-*.class
-*.jar
+tests/temp
+/org

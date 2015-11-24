@@ -68,3 +68,36 @@ class ForLoopTests(TranspileTestCase):
     #         expected="""
     #          Code (159 bytes)
     #         """)
+
+    def test_break(self):
+        self.assertCodeExecution(
+            code="""
+                for i in range(1, 10):
+                    print(i, i % 5)
+                    if i % 5 == 0:
+                        break
+                    print ("after")
+                print("Done")
+            """)
+
+    def test_continue(self):
+        self.assertCodeExecution(
+            code="""
+                for i in range(1, 10):
+                    print(i, i % 5)
+                    if i % 5 == 0:
+                        continue
+                    print ("after")
+                print("Done")
+            """)
+
+    def test_nested(self):
+        self.assertCodeExecution(
+            code="""
+                i = 1
+                j = 10
+                for i in range(1, 10):
+                    for k in range(0, i):
+                        print(i, j)
+                print("Done")
+            """)
